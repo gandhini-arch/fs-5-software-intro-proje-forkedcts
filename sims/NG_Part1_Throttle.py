@@ -33,15 +33,15 @@ def step (state:State) -> State:
     acceleration = force_at_wheels/mass
 
     new_vel = state.xvel + acceleration * time_step
-    new_xpos = state.xpos + state.xvel * time_stop
-    new_time = state.time + time_stop
+    new_xpos = state.xpos + state.xvel * time_step
+    new_time = state.time + time_step
 
 
-    newState = state(
-        xvel = new_vel,
-        xpos = new_xpos,
-        ypos = 0
-        time = new_time,
+    newState = State(
+        xvel=new_vel,
+        time=new_time,
+        xpos=new_xpos,
+        ypos=0,
     )
 
     return newState
@@ -55,20 +55,20 @@ def animate (i):
     ax.set_ylim(0,10)
     return ax
 
-s0 = state(
-    xpos = 0
-    ypos = 0
-    time = 0
-    xvel = 0
+s0 = State(
+    xvel=0,
+    time=0,
+    xpos=0,
+    ypos=0
 )
 
 
 fig = plt.figure(figsize=(3,3), dpi=200)
 ax = fig.add_subplot(111)
 ax.grid()
-ax.set_xlim(-2, 2)
-ax.set_ylim(-2, 2)
+ax.set_xlim(-5, 5)
+ax.set_ylim(-5, 5)
 # these lines are so the animation doesnt zoom in or out
 plt.pause(3)
-ani = animation.FuncAnimation(fig, animate, interval=20)
+ani = animation.FuncAnimation(fig, animate, interval= 10)
 plt.show()
