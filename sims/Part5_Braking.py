@@ -12,7 +12,7 @@ class State:
     xpos: float
     ypos: float
 
-time_step = 0.01
+time_step = 0.05
 
 def step (state:State) -> State:
     max_braking_capacity = 1850
@@ -61,12 +61,12 @@ s0 = state(
     
 
 
-fig = plt.figure(figsize=(3,3), dpi=150)
+fig = plt.figure(figsize=(3,3), dpi=200)
 ax = fig.add_subplot(111)
 ax.grid()
 ax.set_xlim(-2, 2)
 ax.set_ylim(-2, 2)
 # these lines are so the animation doesnt zoom in or out
 plt.pause(3)
-ani = animation.FuncAnimation(fig, animate, interval=0)
+ani = animation.FuncAnimation(fig, animate, interval=20)
 plt.show()
