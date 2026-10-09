@@ -48,9 +48,12 @@ def animate (i):
     global s0
     s0 = step(s0)
     ax.clear()
-    ax.scatter([s0.xpos],[s0.ypos],s = 700, c = "pink", marker = 's')
-    ax.set_xlim(0,300)
-    ax.set_ylim(0,10)
+    
+    ax.grid(True)
+    ax.set_xlim(0, 300)
+    ax.set_ylim(0, 10)
+    
+    ax.scatter([s0.xpos], [s0.ypos], s=700, c="pink", marker='s')
     return ax
 
 s0 = State(
@@ -61,13 +64,12 @@ s0 = State(
     ypos = 0.0
 )
 
-
 fig = plt.figure(figsize=(3,3), dpi=200)
 ax = fig.add_subplot(111)
 ax.grid()
-ax.set_xlim(-2, 2)
-ax.set_ylim(-2, 2)
+ax.set_xlim(-5, 5)
+ax.set_ylim(-5, 5)
 # these lines are so the animation doesnt zoom in or out
 plt.pause(3)
-ani = animation.FuncAnimation(fig, animate, interval=20)
+ani = animation.FuncAnimation(fig, animate, interval= 20)
 plt.show()
