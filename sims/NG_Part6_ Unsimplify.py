@@ -71,14 +71,14 @@ def animate (i):
     ax.set_ylim(0,10)
     return ax
 
-s0 = state(
-  xpos = 0
-  ypos = 0
-  propulsion_force= 0
-  acceleration = 0
-  velocity = 0
-  temperature = 0
-  heat_energy = 0
+s0 = State(
+  xpos = 0,
+  ypos = 0,
+  propulsion_force= 0,
+  acceleration = 0,
+  velocity = 0,
+  temperature = 0,
+  heat_energy = 0,
   time = 0
     
 )
@@ -93,5 +93,3 @@ ax.set_ylim(-2, 2)
 plt.pause(3)
 ani = animation.FuncAnimation(fig, animate, interval=20)
 plt.show()
-
-
