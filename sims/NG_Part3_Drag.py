@@ -12,7 +12,7 @@ class State:
     xpos: float = 0.0
 
 
-time_step = 0.05
+time_step = 0.01
 
 
 def step (state:State) -> State:
@@ -70,5 +70,7 @@ ax.set_ylim(-2, 2)
 
 # these lines are so the animation doesnt zoom in or out
 plt.pause(3)
+
 ani = animation.FuncAnimation(fig, animate, interval=20)
+
 plt.show()
