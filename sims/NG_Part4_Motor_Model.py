@@ -41,7 +41,9 @@ def step (state:State) -> State:
         propulsion_force = propulsion_force,
         acceleration = new_acceleration,
         velocity = new_velocity,
-        time = new_time
+        time = new_time,
+        xpos = new_xpos,
+        ypos = new_ypos
     )
 
 def animate (i):
@@ -72,4 +74,3 @@ ax.set_ylim(-2, 2)
 plt.pause(3)
 ani = animation.FuncAnimation(fig, animate, interval=20)
 plt.show()
-
